@@ -2,14 +2,14 @@ version: '3.5'
 
 services:
   postgres:
-    container_name: lab-web2024
+    container_name: trabalho-dev-web
     image: postgres
     environment:
-      POSTGRES_USER: ${POSTGRES_USER:-fatec}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-fatec}
+      POSTGRES_USER: ${POSTGRES_USER:-teste}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-teste}
       PGDATA: /data/postgres
     volumes:
-       - postgres:/data/postgres
+      - postgres:/data/postgres
     ports:
       - "5433:5432"
     networks:
