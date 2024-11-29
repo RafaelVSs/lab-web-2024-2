@@ -15,4 +15,8 @@ const list = async(filters) => {
     return await alunoModel.Aluno.findAll();
 }
 
-module.exports = {save, list};
+const findById = async (id) => {
+    return await alunoModel.Aluno.findByPk(id);
+}
+
+module.exports = {save, list, findById};

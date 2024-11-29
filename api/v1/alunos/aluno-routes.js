@@ -4,7 +4,6 @@ const alunoSchema = require("./aluno-schema");
 const baseVersion = '/v1';
 
 const routes = [
-   
     {
         method: "GET",
         path: `${baseVersion}/alunos`,

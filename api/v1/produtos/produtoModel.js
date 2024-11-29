@@ -40,10 +40,6 @@ const Produto = database.sequelize.define('Produto', {
         type: Sequelize.JSON,
         allowNull: true,
     },
-    dimension: {
-        type: Sequelize.JSON,
-        allowNull: true,
-    },
     weight: {
         type: Sequelize.JSON,
         allowNull: true,
@@ -54,7 +50,10 @@ const Produto = database.sequelize.define('Produto', {
     }
 
 }, {
-    tableName: 'produto'
+    Sequelize,
+    modelName: 'produto',
+    tableName: 'produto',
+    timestamps: true,
 });
 
 module.exports = {Produto}

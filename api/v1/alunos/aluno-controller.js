@@ -13,7 +13,7 @@ const alunoPorId = async (request, h) => {
 
     const idAluno = request.params.id;
     
-    const alunoProcurado = listaAlunos.find(aluno => aluno.id == idAluno);
+    const alunoProcurado = alunoBusiness.findById(aluno => aluno.id == idAluno);
     if(alunoProcurado) {
         return h.response(alunoProcurado).code(200);
     } 
@@ -22,7 +22,7 @@ const alunoPorId = async (request, h) => {
 }
 
 const createAluno = async (request, h) => {
-    //save in memory
+
     
     const result = await alunoBusiness.save(request.payload);
 

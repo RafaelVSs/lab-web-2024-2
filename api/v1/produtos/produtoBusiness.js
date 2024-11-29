@@ -1,16 +1,30 @@
+
+
 const produtoModel = require('./produtoModel');
 
 const save = async (produto) => {
-    
     const saved = await produtoModel.Produto.create(produto)
-
     return produto;
 }
 
-const list = async(filters) => {
+const list = async(filters) => {   
+    const whereClause = {};
+    if (filters.name) {
+        whereClause.name = filters.name;
+    }  
+    if (filters.category) {
+        whereClause.category = filters.category;
+    } 
+    if (filters.brand) {
+        whereClause.brand = filters.brand;
+    } 
+    return await produtoModel.Produto.findAll({
+        where: whereClause
+    });
+}
 
-    
-    return await produtoModel.Produto.findAll();
+const findById = async (id) => {   
+    return await produtoModel.Produto.findByPk(id); 
 }
 
 const update = async (id, produto) => {
@@ -27,4 +41,4 @@ const remove = async (id) => {
     return deleted; 
 }
 
-module.exports = {save, list}, update, remove;
+module.exports = {save, list, findById, update, remove};
